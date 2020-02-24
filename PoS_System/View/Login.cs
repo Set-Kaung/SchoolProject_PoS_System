@@ -29,7 +29,7 @@ namespace PoS_System.View
             {
                 this.Hide();
                 FirstPage firstPage = new FirstPage();
-                firstPage.Show();
+                firstPage.ShowDialog();
                 if (firstPage.IsDisposed) 
                 {
                     this.Show();

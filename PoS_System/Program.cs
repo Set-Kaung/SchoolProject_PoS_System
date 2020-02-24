@@ -19,7 +19,7 @@ namespace PoS_System
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FirstPage());
+            Application.Run(new Login());
 
             /* BrandDAO brandDAO = new BrandDAO();
              List<Brand> brands = brandDAO.GetBrands();
