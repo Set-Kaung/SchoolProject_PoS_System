@@ -35,6 +35,7 @@
             this.passwordBox = new System.Windows.Forms.TextBox();
             this.loginBtn = new System.Windows.Forms.Button();
             this.exitBtn = new System.Windows.Forms.Button();
+            this.signUpBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // loginLbl
@@ -124,13 +125,29 @@
             this.exitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.exitBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exitBtn.ForeColor = System.Drawing.Color.Black;
-            this.exitBtn.Location = new System.Drawing.Point(102, 263);
+            this.exitBtn.Location = new System.Drawing.Point(102, 296);
             this.exitBtn.Name = "exitBtn";
             this.exitBtn.Size = new System.Drawing.Size(74, 27);
             this.exitBtn.TabIndex = 7;
             this.exitBtn.Text = "Exit";
             this.exitBtn.UseVisualStyleBackColor = false;
             this.exitBtn.Click += new System.EventHandler(this.exitBtn_Click);
+            // 
+            // signUpBtn
+            // 
+            this.signUpBtn.AutoEllipsis = true;
+            this.signUpBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.signUpBtn.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.signUpBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.signUpBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.signUpBtn.ForeColor = System.Drawing.Color.Black;
+            this.signUpBtn.Location = new System.Drawing.Point(102, 263);
+            this.signUpBtn.Name = "signUpBtn";
+            this.signUpBtn.Size = new System.Drawing.Size(74, 27);
+            this.signUpBtn.TabIndex = 8;
+            this.signUpBtn.Text = "Sign-Up";
+            this.signUpBtn.UseVisualStyleBackColor = false;
+            this.signUpBtn.Click += new System.EventHandler(this.signUpBtn_Click);
             // 
             // Login
             // 
@@ -139,6 +156,7 @@
             this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.BackgroundImage = global::PoS_System.Properties.Resources.background;
             this.ClientSize = new System.Drawing.Size(321, 451);
+            this.Controls.Add(this.signUpBtn);
             this.Controls.Add(this.exitBtn);
             this.Controls.Add(this.loginBtn);
             this.Controls.Add(this.passwordBox);
@@ -167,5 +185,6 @@
         private System.Windows.Forms.TextBox passwordBox;
         private System.Windows.Forms.Button loginBtn;
         private System.Windows.Forms.Button exitBtn;
+        private System.Windows.Forms.Button signUpBtn;
     }
 }

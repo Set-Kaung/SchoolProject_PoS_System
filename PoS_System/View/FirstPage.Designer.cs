@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -59,6 +60,9 @@
             this.productPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productBarcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.searchBox = new System.Windows.Forms.TextBox();
+            this.searchBtn = new System.Windows.Forms.Button();
+            this.searchToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.leftPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.profileIcon)).BeginInit();
             this.brandPanel.SuspendLayout();
@@ -119,9 +123,9 @@
             this.manageProductBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.manageProductBtn.ForeColor = System.Drawing.SystemColors.Control;
             this.manageProductBtn.Image = global::PoS_System.Properties.Resources.productIcon;
-            this.manageProductBtn.Location = new System.Drawing.Point(0, 277);
+            this.manageProductBtn.Location = new System.Drawing.Point(3, 277);
             this.manageProductBtn.Name = "manageProductBtn";
-            this.manageProductBtn.Size = new System.Drawing.Size(285, 38);
+            this.manageProductBtn.Size = new System.Drawing.Size(282, 38);
             this.manageProductBtn.TabIndex = 6;
             this.manageProductBtn.Text = "Manage Product";
             this.manageProductBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -133,9 +137,9 @@
             this.manageCategoryBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.manageCategoryBtn.ForeColor = System.Drawing.SystemColors.Control;
             this.manageCategoryBtn.Image = global::PoS_System.Properties.Resources.categoryIcon;
-            this.manageCategoryBtn.Location = new System.Drawing.Point(0, 233);
+            this.manageCategoryBtn.Location = new System.Drawing.Point(3, 233);
             this.manageCategoryBtn.Name = "manageCategoryBtn";
-            this.manageCategoryBtn.Size = new System.Drawing.Size(288, 38);
+            this.manageCategoryBtn.Size = new System.Drawing.Size(285, 38);
             this.manageCategoryBtn.TabIndex = 4;
             this.manageCategoryBtn.Text = "Manage Category";
             this.manageCategoryBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -148,9 +152,9 @@
             this.manageBrandBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.manageBrandBtn.ForeColor = System.Drawing.SystemColors.Control;
             this.manageBrandBtn.Image = global::PoS_System.Properties.Resources.brandIcon;
-            this.manageBrandBtn.Location = new System.Drawing.Point(0, 189);
+            this.manageBrandBtn.Location = new System.Drawing.Point(3, 189);
             this.manageBrandBtn.Name = "manageBrandBtn";
-            this.manageBrandBtn.Size = new System.Drawing.Size(288, 38);
+            this.manageBrandBtn.Size = new System.Drawing.Size(285, 38);
             this.manageBrandBtn.TabIndex = 5;
             this.manageBrandBtn.Text = "Manage Brand";
             this.manageBrandBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -286,9 +290,9 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.productTable);
-            this.panel1.Location = new System.Drawing.Point(293, 302);
+            this.panel1.Location = new System.Drawing.Point(293, 342);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(877, 310);
+            this.panel1.Size = new System.Drawing.Size(877, 270);
             this.panel1.TabIndex = 4;
             // 
             // productTable
@@ -323,7 +327,7 @@
             this.productTable.Name = "productTable";
             this.productTable.RowHeadersVisible = false;
             this.productTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.productTable.Size = new System.Drawing.Size(877, 310);
+            this.productTable.Size = new System.Drawing.Size(877, 270);
             this.productTable.TabIndex = 4;
             // 
             // productID
@@ -375,18 +379,43 @@
             this.productBarcode.HeaderText = "Barcode";
             this.productBarcode.Name = "productBarcode";
             // 
+            // searchBox
+            // 
+            this.searchBox.Location = new System.Drawing.Point(297, 312);
+            this.searchBox.Name = "searchBox";
+            this.searchBox.Size = new System.Drawing.Size(226, 24);
+            this.searchBox.TabIndex = 5;
+            this.searchToolTip.SetToolTip(this.searchBox, "Search product by barcode");
+            // 
+            // searchBtn
+            // 
+            this.searchBtn.Location = new System.Drawing.Point(529, 312);
+            this.searchBtn.Name = "searchBtn";
+            this.searchBtn.Size = new System.Drawing.Size(75, 27);
+            this.searchBtn.TabIndex = 6;
+            this.searchBtn.Text = "Search";
+            this.searchBtn.UseVisualStyleBackColor = true;
+            // 
+            // searchToolTip
+            // 
+            this.searchToolTip.ToolTipTitle = "Search Product";
+            this.searchToolTip.Popup += new System.Windows.Forms.PopupEventHandler(this.searchToolTip_Popup);
+            // 
             // FirstPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1172, 612);
+            this.Controls.Add(this.searchBtn);
+            this.Controls.Add(this.searchBox);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.categoryPanel);
             this.Controls.Add(this.brandPanel);
             this.Controls.Add(this.topPanel);
             this.Controls.Add(this.leftPanel);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FirstPage";
@@ -402,6 +431,7 @@
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.productTable)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -434,5 +464,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn productPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn productStock;
         private System.Windows.Forms.DataGridViewTextBoxColumn productBarcode;
+        private System.Windows.Forms.TextBox searchBox;
+        private System.Windows.Forms.Button searchBtn;
+        private System.Windows.Forms.ToolTip searchToolTip;
     }
 }

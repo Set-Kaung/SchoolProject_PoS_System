@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PoS_System.Services;
 
 namespace PoS_System.View
 {
     public partial class Login : Form
     {
+        StaffService staffService = new StaffServiceImpl();
         public Login()
         {
             InitializeComponent();
@@ -23,9 +25,9 @@ namespace PoS_System.View
         {
             string name = nameBox.Text;
             string password = passwordBox.Text;
-            //string userPassword = "admin123";
+            
 
-            if(name.Equals("admin")) 
+            if(staffService.isValid(name,password)) 
             {
                 this.Hide();
                 FirstPage firstPage = new FirstPage();
@@ -33,16 +35,11 @@ namespace PoS_System.View
                 if (firstPage.IsDisposed) 
                 {
                     this.Show();
-                }
-
-                
-
-               
-
+                }            
             }
             else 
             {
-                MessageBox.Show("username or password is wrong");
+                MessageBox.Show("Username or Password is invalid.");
             }
         }
 
@@ -54,6 +51,17 @@ namespace PoS_System.View
         private void Login_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void signUpBtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            SignUp signUp = new SignUp();
+            signUp.ShowDialog();
+            if (signUp.IsDisposed) 
+            {
+                this.Show();
+            }
         }
     }
 }

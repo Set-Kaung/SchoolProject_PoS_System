@@ -17,3 +17,4 @@ D:\PoS\PoS_System\PoS_System\obj\Debug\PoSSystem.csproj.GenerateResource.cache
 D:\PoS\PoS_System\PoS_System\obj\Debug\PoSSystem.csproj.CopyComplete
 D:\PoS\PoS_System\PoS_System\obj\Debug\PoS_System.exe
 D:\PoS\PoS_System\PoS_System\obj\Debug\PoS_System.pdb
+D:\PoS\PoS_System\PoS_System\obj\Debug\PoS_System.View.SignUp.resources
