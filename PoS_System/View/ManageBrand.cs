@@ -18,6 +18,8 @@ namespace PoS_System.View
         private static ManageBrand manageBrand;
         private long id;
         private string name;
+
+
         public ManageBrand()
         {
             InitializeComponent();
@@ -35,7 +37,7 @@ namespace PoS_System.View
         {
             if (brandTable.Rows.Count == 0)
             {
-                List<Brand> brands = brandService.loadBrands();
+                List<Brand> brands = brandService.getAllBrands();
                 foreach (Brand brand in brands)
                 {
                     brandTable.Rows.Add(brand.Id, brand.Name);
@@ -44,7 +46,7 @@ namespace PoS_System.View
             else if(brandTable.Rows.Count > 0)
             {
                 brandTable.Rows.Clear();
-                List<Brand> brands = brandService.loadBrands();
+                List<Brand> brands = brandService.getAllBrands();
                 foreach (Brand brand in brands)
                 {
                     brandTable.Rows.Add(brand.Id, brand.Name);
@@ -61,8 +63,9 @@ namespace PoS_System.View
 
         private void addBtn_Click(object sender, EventArgs e)
         {
-            string name = nameBox.Text;
+            name = nameBox.Text;
             brandService.addBrand(name);
+            nameBox.Clear();
             loadBrands();
         }
 
@@ -104,6 +107,7 @@ namespace PoS_System.View
                 else 
                 {
                     MessageBox.Show("Brand deleted.");
+                    nameBox.Clear();
                     loadBrands();
                 }
             }

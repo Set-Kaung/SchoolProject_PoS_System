@@ -17,5 +17,20 @@ namespace PoS_System.Services
             List<Category> categories = categoryDAO.getAllCategories();
             return categories;
         }
+
+        public void addCategory(string name) 
+        {
+            categoryDAO.addCategory(name);
+        }
+
+        public void updateCategory(long id, string name) 
+        {
+            categoryDAO.updateCategory(id, name);
+        }
+
+        public int deleteCategory(long id) 
+        {
+            return categoryDAO.deleteCategory(id);
+        }
     }
 }

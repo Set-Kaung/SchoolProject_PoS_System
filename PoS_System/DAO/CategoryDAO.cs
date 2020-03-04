@@ -78,8 +78,9 @@ namespace PoS_System.DAO
                 connection.Close();
             }
         }
-        public void deleteCategory(long id)
+        public int deleteCategory(long id)
         {
+            int status = 0;
             try
             {
                 connection.Open();
@@ -97,11 +98,12 @@ namespace PoS_System.DAO
             }
             catch (MySqlException ex)
             {
-
+                
 
                 if (ex.ErrorCode.Equals(-2147467259))
                 {
-                    Console.WriteLine("You can't delete a row that is refrenced elsewhere.");
+                    status = -214;
+                    
                 }
                 else
                 {
@@ -114,6 +116,7 @@ namespace PoS_System.DAO
             {
                 connection.Close();
             }
+            return status;
         }
         public void addCategory(string name)
         {

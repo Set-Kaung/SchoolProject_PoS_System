@@ -12,7 +12,7 @@ namespace PoS_System.Services
     class BrandServiceImpl : BrandService
     {
         private BrandDAO brandDAO = new BrandDAO();
-        public List<Brand> loadBrands()
+        public List<Brand> getAllBrands()
         {
             List<Brand> brands = new List<Brand>();
             brands = brandDAO.getAllBrands();

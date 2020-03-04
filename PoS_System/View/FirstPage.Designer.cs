@@ -372,6 +372,7 @@
             this.manageProductBtn.Text = "Manage Product";
             this.manageProductBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.manageProductBtn.UseVisualStyleBackColor = true;
+            this.manageProductBtn.Click += new System.EventHandler(this.manageProductBtn_Click);
             // 
             // manageCategoryBtn
             // 
@@ -386,6 +387,7 @@
             this.manageCategoryBtn.Text = "Manage Category";
             this.manageCategoryBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.manageCategoryBtn.UseVisualStyleBackColor = true;
+            this.manageCategoryBtn.Click += new System.EventHandler(this.manageCategoryBtn_Click);
             // 
             // manageBrandBtn
             // 

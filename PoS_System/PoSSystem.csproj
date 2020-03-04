@@ -108,11 +108,11 @@
     <Compile Include="View\FirstPage.Designer.cs">
       <DependentUpon>FirstPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\ManageCaetgory.cs">
+    <Compile Include="View\ManageCategory.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\ManageCaetgory.Designer.cs">
-      <DependentUpon>ManageCaetgory.cs</DependentUpon>
+    <Compile Include="View\ManageCategory.Designer.cs">
+      <DependentUpon>ManageCategory.cs</DependentUpon>
     </Compile>
     <Compile Include="View\ManageProduct.cs">
       <SubType>Form</SubType>
@@ -151,8 +151,8 @@
     <EmbeddedResource Include="View\FirstPage.resx">
       <DependentUpon>FirstPage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\ManageCaetgory.resx">
-      <DependentUpon>ManageCaetgory.cs</DependentUpon>
+    <EmbeddedResource Include="View\ManageCategory.resx">
+      <DependentUpon>ManageCategory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\ManageProduct.resx">
       <DependentUpon>ManageProduct.cs</DependentUpon>

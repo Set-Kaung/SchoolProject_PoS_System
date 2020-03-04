@@ -28,7 +28,7 @@ namespace PoS_System.View
         {
             if (brandTable.Rows.Count == 0)
             {
-                List<Brand> brands = brandService.loadBrands();
+                List<Brand> brands = brandService.getAllBrands();
                 foreach (Brand brand in brands)
                 {
                     brandTable.Rows.Add(brand.Id, brand.Name);
@@ -37,7 +37,7 @@ namespace PoS_System.View
             else if (brandTable.Rows.Count > 0)
             {
                 brandTable.Rows.Clear();
-                List<Brand> brands = brandService.loadBrands();
+                List<Brand> brands = brandService.getAllBrands();
                 foreach (Brand brand in brands)
                 {
                     brandTable.Rows.Add(brand.Id, brand.Name);
@@ -45,26 +45,50 @@ namespace PoS_System.View
             }
         }
 
-            public void loadCategories()
+        public void loadCategories()
         {
-            List<Category> categories = categoryService.getAllCategories();
-            foreach (Category category in categories)
+            if (categoryTable.Rows.Count == 0)
             {
-                categoryTable.Rows.Add(category.Id, category.Name);
+                List<Category> categories = categoryService.getAllCategories();
+                foreach (Category category in categories)
+                {
+                    categoryTable.Rows.Add(category.Id, category.Name);
+                }
+            }
+            else if (categoryTable.Rows.Count > 0)
+            {
+                categoryTable.Rows.Clear();
+                List<Category> categories = categoryService.getAllCategories();
+                foreach (Category category in categories)
+                {
+                    categoryTable.Rows.Add(category.Id, category.Name);
+                }
             }
         }
 
         public void loadProducts()
         {
-            List<Product> products = productService.getAllProducts();
-            foreach (Product product in products)
+            if (productTable.Rows.Count == 0)
             {
-                productTable.Rows.Add(product.Id, product.Name, product.Description, product.BrandID, product.CategoryID, product.Price, product.Stock, product.Barcode);
+                List<Product> products = productService.getAllProducts();
+                foreach (Product product in products)
+                {
+                    productTable.Rows.Add(product.Id, product.Name, product.Description, product.BrandID, product.CategoryID, product.Price, product.Stock, product.Barcode);
+                }
+            }
+            else if (productTable.Rows.Count > 0)
+            {
+                productTable.Rows.Clear();
+                List<Product> products = productService.getAllProducts();
+                foreach (Product product in products)
+                {
+                    productTable.Rows.Add(product.Id, product.Name, product.Description, product.BrandID, product.CategoryID, product.Price, product.Stock, product.Barcode);
+                }
             }
         }
 
 
-       
+
 
         private void logoutBtn_Click(object sender, EventArgs e)
         {
@@ -102,6 +126,28 @@ namespace PoS_System.View
         private void brandTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void manageCategoryBtn_Click(object sender, EventArgs e)
+        {
+            ManageCategory manageCategory = ManageCategory.createInstance();
+            manageCategory.ShowDialog();
+            if (manageCategory.Focused == false) 
+            {
+                this.Focus();
+                loadCategories();
+            }
+        }
+
+        private void manageProductBtn_Click(object sender, EventArgs e)
+        {
+            ManageProduct manageProduct = ManageProduct.createInstance();
+            manageProduct.ShowDialog();
+            if (manageProduct.Focused == false) 
+            {
+                this.Focus();
+                loadProducts();
+            }
         }
     }
     

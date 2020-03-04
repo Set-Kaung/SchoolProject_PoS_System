@@ -9,7 +9,7 @@ namespace PoS_System.Services
 {
     interface BrandService
     {
-        List<Brand> loadBrands();
+        List<Brand> getAllBrands();
         void addBrand(string name);
 
         int deleteBrand(long id);

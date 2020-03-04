@@ -10,5 +10,9 @@ namespace PoS_System.Services
     interface CategoryService
     {
         List<Category> getAllCategories();
+        void addCategory(string name);
+        void updateCategory(long id, string name);
+        int deleteCategory(long id);
+        
     }
 }
