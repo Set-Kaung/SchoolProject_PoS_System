@@ -99,7 +99,94 @@ namespace PoS_System.DAO
                 connection.Close();
             }
         }
-        
 
+        public int deleteProduct(long id) 
+        {
+            int status = 0;
+
+            try
+            {
+                connection.Open();
+                MySqlCommand command = new MySqlCommand(null, connection);
+                command.CommandText = "DELETE FROM product WHERE ID=@id";
+
+                MySqlParameter idParam = new MySqlParameter("@id", MySqlDbType.Int64, 0);
+
+                idParam.Value = id;
+
+                command.Parameters.Add(idParam);
+
+                command.Prepare();
+                command.ExecuteNonQuery();
+
+            } 
+            catch (MySqlException ex) 
+            {
+                if (ex.ErrorCode.Equals(-2147467259))
+                {
+                    status = -214;
+                }
+                else
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            } 
+            finally
+            {
+                connection.Close();
+            }
+
+            return status;
+        }
+
+        public void updateProduct(Product product) 
+        {
+            try
+            {
+                connection.Open();
+                MySqlCommand command = new MySqlCommand(null, connection);
+                command.CommandText = "UPDATE product SET Name=@name,Description=@des,Brand_ID=@brand,Category_ID=@category,Price=@price,Stock=@stock,Barcode=@barcode WHERE ID=@id";
+
+                MySqlParameter idParam = new MySqlParameter("@id", MySqlDbType.Int64, 0);
+                MySqlParameter nameParam = new MySqlParameter("@name", MySqlDbType.Text, 100);
+                MySqlParameter desParam = new MySqlParameter("@des", MySqlDbType.Text, 100);
+                MySqlParameter brandParam = new MySqlParameter("@brand", MySqlDbType.Int64, 0);
+                MySqlParameter categoryParam = new MySqlParameter("@category", MySqlDbType.Int64, 0);
+                MySqlParameter priceParam = new MySqlParameter("@price", MySqlDbType.Double, 0);
+                MySqlParameter stockParam = new MySqlParameter("@stock", MySqlDbType.Int64, 0);
+                MySqlParameter barcodeParam = new MySqlParameter("@barcode", MySqlDbType.Int64, 0);
+
+                idParam.Value = product.Id;
+                nameParam.Value = product.Name;
+                desParam.Value = product.Description;
+                brandParam.Value = product.BrandID;
+                categoryParam.Value = product.CategoryID;
+                priceParam.Value = product.Price;
+                stockParam.Value = product.Stock;
+                barcodeParam.Value = product.Barcode;
+
+                command.Parameters.Add(idParam);
+                command.Parameters.Add(nameParam);
+                command.Parameters.Add(desParam);
+                command.Parameters.Add(brandParam);
+                command.Parameters.Add(categoryParam);
+                command.Parameters.Add(priceParam);
+                command.Parameters.Add(stockParam);
+                command.Parameters.Add(barcodeParam);
+
+                command.Prepare();
+                command.ExecuteNonQuery();
+
+
+            }
+            catch (MySqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
     }
 }

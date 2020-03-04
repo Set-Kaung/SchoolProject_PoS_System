@@ -12,5 +12,6 @@ namespace PoS_System.Services
         List<Staff> getAllStaffs();
         void addStaff(string username, string password);
         Boolean isValid(string username,string password);
+        
     }
 }

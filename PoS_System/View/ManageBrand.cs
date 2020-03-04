@@ -129,6 +129,22 @@ namespace PoS_System.View
             }
 
         }
+
+        private void updateBtn_Click(object sender, EventArgs e)
+        {
+            if (id == null) 
+            {
+                MessageBox.Show("Please select a row");
+            }
+            else 
+            {
+                this.name = nameBox.Text;
+                brandService.updateBrand(this.id, name);
+                nameBox.Clear();
+                loadBrands();
+            }
+         
+        }
     }   
 }
 

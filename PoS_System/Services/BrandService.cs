@@ -11,7 +11,7 @@ namespace PoS_System.Services
     {
         List<Brand> getAllBrands();
         void addBrand(string name);
-
+        void updateBrand(long id,string name);
         int deleteBrand(long id);
     }
 }

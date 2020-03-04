@@ -12,5 +12,7 @@ namespace PoS_System.Services
     {
         List<Product> getAllProducts();
         void addProduct(Product product);
+        void updateProduct(Product product);
+        int deleteProduct(long id);
     }
 }

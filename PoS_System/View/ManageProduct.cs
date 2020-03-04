@@ -155,5 +155,50 @@ namespace PoS_System.View
             loadProducts();
             clearTextBoxes();
         }
+
+        private void deleteBtn_Click(object sender, EventArgs e)
+        {
+            if (id == null)
+            {
+                MessageBox.Show("Please select a row.");
+            }
+            else
+            {
+                int status = productService.deleteProduct(id);
+                if (status == -214)
+                {
+                    MessageBox.Show("You can't delete a row that is refrenced elsewhere.");
+                }
+                else
+                {
+                    MessageBox.Show("Product deleted.");
+                    clearTextBoxes();
+                    loadProducts();
+                }
+            }
+        }
+
+        private void updateBtn_Click(object sender, EventArgs e)
+        {
+            if (id == null)
+            {
+                MessageBox.Show("Please select a row.");
+            }
+            else 
+            {
+                name = nameBox.Text;
+                description = desBox.Text;
+                brandID = long.Parse(brandIDBox.Text);
+                categoryID = long.Parse(categoryIDBox.Text);
+                price = double.Parse(priceBox.Text);
+                stock = long.Parse(stockBox.Text);
+                barcode = long.Parse(barcodeBox.Text);
+                Product product = new Product(id,name, description, brandID, categoryID, price, stock, barcode);
+
+                productService.updateProduct(product);
+                loadProducts();
+                clearTextBoxes();
+            }
+        }
     }
 }

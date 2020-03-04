@@ -20,5 +20,15 @@ namespace PoS_System.Services
         {
             productDAO.addProduct(product);
         }
+
+        public int deleteProduct(long id) 
+        {
+            return productDAO.deleteProduct(id);
+        }
+
+        public void updateProduct(Product product) 
+        {
+            productDAO.updateProduct(product);
+        }
     }
 }

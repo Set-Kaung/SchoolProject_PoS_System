@@ -25,6 +25,11 @@ namespace PoS_System.Services
             brandDAO.addBrand(name);   
         }
 
+        public void updateBrand(long id,string name) 
+        {
+            brandDAO.updateBrand(id,name);
+        }
+
         public int deleteBrand(long id) 
         {
             return brandDAO.deleteBrand(id);

@@ -114,5 +114,20 @@ namespace PoS_System.View
             nameBox.Clear();
             loadCategories();
         }
+
+        private void updateBtn_Click(object sender, EventArgs e)
+        {
+            if (id == null)
+            {
+                MessageBox.Show("Please select a row");
+            }
+            else
+            {
+                this.name = nameBox.Text;
+                categoryService.updateCategory(this.id, name);
+                nameBox.Clear();
+                loadCategories();
+            }
+        }
     }
 }

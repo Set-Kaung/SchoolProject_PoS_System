@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageProduct));
             this.leftPanel = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.clearBtn = new System.Windows.Forms.Button();
             this.barcodeLbl = new System.Windows.Forms.Label();
             this.stockLbl = new System.Windows.Forms.Label();
             this.priceLbl = new System.Windows.Forms.Label();
@@ -61,7 +62,6 @@
             this.productStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productBarcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.topPanel = new System.Windows.Forms.Panel();
-            this.clearBtn = new System.Windows.Forms.Button();
             this.leftPanel.SuspendLayout();
             this.panel1.SuspendLayout();
             this.prodcutPanel.SuspendLayout();
@@ -109,6 +109,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(381, 421);
             this.panel1.TabIndex = 6;
+            // 
+            // clearBtn
+            // 
+            this.clearBtn.Location = new System.Drawing.Point(105, 349);
+            this.clearBtn.Name = "clearBtn";
+            this.clearBtn.Size = new System.Drawing.Size(75, 23);
+            this.clearBtn.TabIndex = 32;
+            this.clearBtn.Text = "Clear";
+            this.clearBtn.UseVisualStyleBackColor = true;
+            this.clearBtn.Click += new System.EventHandler(this.clearBtn_Click);
             // 
             // barcodeLbl
             // 
@@ -247,6 +257,7 @@
             this.updateBtn.TabIndex = 16;
             this.updateBtn.Text = "Update";
             this.updateBtn.UseVisualStyleBackColor = true;
+            this.updateBtn.Click += new System.EventHandler(this.updateBtn_Click);
             // 
             // nameBox
             // 
@@ -273,6 +284,7 @@
             this.deleteBtn.TabIndex = 15;
             this.deleteBtn.Text = "Delete";
             this.deleteBtn.UseVisualStyleBackColor = true;
+            this.deleteBtn.Click += new System.EventHandler(this.deleteBtn_Click);
             // 
             // prodcutPanel
             // 
@@ -390,16 +402,6 @@
             this.topPanel.Name = "topPanel";
             this.topPanel.Size = new System.Drawing.Size(1184, 41);
             this.topPanel.TabIndex = 1;
-            // 
-            // clearBtn
-            // 
-            this.clearBtn.Location = new System.Drawing.Point(105, 349);
-            this.clearBtn.Name = "clearBtn";
-            this.clearBtn.Size = new System.Drawing.Size(75, 23);
-            this.clearBtn.TabIndex = 32;
-            this.clearBtn.Text = "Clear";
-            this.clearBtn.UseVisualStyleBackColor = true;
-            this.clearBtn.Click += new System.EventHandler(this.clearBtn_Click);
             // 
             // ManageProduct
             // 
