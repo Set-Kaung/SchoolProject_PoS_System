@@ -102,6 +102,12 @@
     <Compile Include="Services\ProductServiceImpl.cs" />
     <Compile Include="Services\StaffService.cs" />
     <Compile Include="Services\StaffServiceImpl.cs" />
+    <Compile Include="View\CashierModule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\CashierModule.Designer.cs">
+      <DependentUpon>CashierModule.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\FirstPage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -148,6 +154,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="View\CashierModule.resx">
+      <DependentUpon>CashierModule.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\FirstPage.resx">
       <DependentUpon>FirstPage.cs</DependentUpon>
     </EmbeddedResource>

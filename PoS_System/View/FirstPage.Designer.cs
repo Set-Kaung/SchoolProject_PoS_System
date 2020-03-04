@@ -63,6 +63,7 @@
             this.manageCategoryBtn = new System.Windows.Forms.Button();
             this.manageBrandBtn = new System.Windows.Forms.Button();
             this.profileIcon = new System.Windows.Forms.PictureBox();
+            this.refreshBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.brandTable)).BeginInit();
             this.brandPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.categoryTable)).BeginInit();
@@ -304,6 +305,7 @@
             this.searchBtn.TabIndex = 6;
             this.searchBtn.Text = "Search";
             this.searchBtn.UseVisualStyleBackColor = true;
+            this.searchBtn.Click += new System.EventHandler(this.searchBtn_Click);
             // 
             // usernameLbl
             // 
@@ -414,12 +416,23 @@
             this.profileIcon.TabIndex = 0;
             this.profileIcon.TabStop = false;
             // 
+            // refreshBtn
+            // 
+            this.refreshBtn.Location = new System.Drawing.Point(635, 312);
+            this.refreshBtn.Name = "refreshBtn";
+            this.refreshBtn.Size = new System.Drawing.Size(75, 27);
+            this.refreshBtn.TabIndex = 7;
+            this.refreshBtn.Text = "Refresh";
+            this.refreshBtn.UseVisualStyleBackColor = true;
+            this.refreshBtn.Click += new System.EventHandler(this.refreshBtn_Click);
+            // 
             // FirstPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1220, 650);
+            this.Controls.Add(this.refreshBtn);
             this.Controls.Add(this.searchBtn);
             this.Controls.Add(this.searchBox);
             this.Controls.Add(this.prodcutPanel);
@@ -480,5 +493,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn productBarcode;
         private System.Windows.Forms.DataGridViewTextBoxColumn brandID;
         private System.Windows.Forms.DataGridViewTextBoxColumn brandName;
+        private System.Windows.Forms.Button refreshBtn;
     }
 }

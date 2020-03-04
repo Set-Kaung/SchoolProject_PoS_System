@@ -17,6 +17,8 @@ namespace PoS_System.View
         BrandService brandService = new BrandServiceImpl();
         CategoryService categoryService = new CategoryServiceImpl();
         ProductService productService = new ProductServiceImpl();
+
+        private List<Product> products;
         
         
         public FirstPage()
@@ -70,7 +72,7 @@ namespace PoS_System.View
         {
             if (productTable.Rows.Count == 0)
             {
-                List<Product> products = productService.getAllProducts();
+                this.products = productService.getAllProducts();
                 foreach (Product product in products)
                 {
                     productTable.Rows.Add(product.Id, product.Name, product.Description, product.BrandID, product.CategoryID, product.Price, product.Stock, product.Barcode);
@@ -79,7 +81,7 @@ namespace PoS_System.View
             else if (productTable.Rows.Count > 0)
             {
                 productTable.Rows.Clear();
-                List<Product> products = productService.getAllProducts();
+                this.products = productService.getAllProducts();
                 foreach (Product product in products)
                 {
                     productTable.Rows.Add(product.Id, product.Name, product.Description, product.BrandID, product.CategoryID, product.Price, product.Stock, product.Barcode);
@@ -148,6 +150,57 @@ namespace PoS_System.View
                 this.Focus();
                 loadProducts();
             }
+        }
+
+        
+
+        
+
+        private void searchBtn_Click(object sender, EventArgs e)
+        {
+            Boolean found = false;
+            DataGridViewRow foundRow = new DataGridViewRow();
+            long element;
+            if (long.TryParse(searchBox.Text, out element))
+            {
+                
+                List<DataGridViewRow> rows = new List<DataGridViewRow>();
+                for (int i = 0; i < productTable.Rows.Count; i++)
+                {
+                    rows.Add(productTable.Rows.SharedRow(i));
+                }
+
+                foreach (DataGridViewRow row in rows)
+                {
+                    long barcode = long.Parse(row.Cells[7].Value.ToString());
+                    if (element == barcode)
+                    {
+                        found = true;
+                        foundRow = row;
+                    }
+                    
+                }
+                if (found)
+                {
+                    productTable.Rows.Clear();
+                    productTable.Rows.Add(foundRow);
+                }
+                else
+                {
+                    MessageBox.Show("Product not found.");
+                }
+            }
+            else 
+            {
+                MessageBox.Show("Please enter a number.");
+                
+            }
+            
+        }
+
+        private void refreshBtn_Click(object sender, EventArgs e)
+        {
+            loadProducts();
         }
     }
     
