@@ -16,5 +16,9 @@ namespace PoS_System.Services
             List<Product> products = productDAO.getAllProducts();
             return products;
         }
+        public void addProduct(Product product) 
+        {
+            productDAO.addProduct(product);
+        }
     }
 }

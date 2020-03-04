@@ -52,6 +52,53 @@ namespace PoS_System.DAO
                 }
                 return products;
             }
+
+        public void addProduct(Product product) 
+        {
+            try
+            {
+                connection.Open();
+                MySqlCommand command = new MySqlCommand(null, connection);
+                command.CommandText = "INSERT INTO product (Name,Description,Brand_ID,Category_ID,Price,Stock,Barcode) VALUES(@name,@des,@brand,@category,@price,@stock,@barcode)";
+
+                MySqlParameter nameParam = new MySqlParameter("@name", MySqlDbType.Text, 100);
+                MySqlParameter desParam = new MySqlParameter("@des", MySqlDbType.Text, 100);
+                MySqlParameter brandParam = new MySqlParameter("@brand", MySqlDbType.Int64, 0);
+                MySqlParameter categoryParam = new MySqlParameter("@category", MySqlDbType.Int64, 0);
+                MySqlParameter priceParam = new MySqlParameter("@price", MySqlDbType.Double, 0);
+                MySqlParameter stockParam = new MySqlParameter("@stock", MySqlDbType.Int64, 0);
+                MySqlParameter barcodeParam = new MySqlParameter("@barcode", MySqlDbType.Int64, 0);
+
+                nameParam.Value = product.Name;
+                desParam.Value = product.Description;
+                brandParam.Value = product.BrandID;
+                categoryParam.Value = product.CategoryID;
+                priceParam.Value = product.Price;
+                stockParam.Value = product.Stock;
+                barcodeParam.Value = product.Barcode;
+
+                command.Parameters.Add(nameParam);
+                command.Parameters.Add(desParam);
+                command.Parameters.Add(brandParam);
+                command.Parameters.Add(categoryParam);
+                command.Parameters.Add(priceParam);
+                command.Parameters.Add(stockParam);
+                command.Parameters.Add(barcodeParam);
+
+                command.Prepare();
+                command.ExecuteNonQuery();
+
+
+            }
+            catch (MySqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally 
+            {
+                connection.Close();
+            }
+        }
         
 
     }

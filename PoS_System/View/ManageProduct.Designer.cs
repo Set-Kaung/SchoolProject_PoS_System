@@ -32,6 +32,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageProduct));
             this.leftPanel = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.barcodeLbl = new System.Windows.Forms.Label();
+            this.stockLbl = new System.Windows.Forms.Label();
+            this.priceLbl = new System.Windows.Forms.Label();
+            this.categoryIDLbl = new System.Windows.Forms.Label();
+            this.brandIDLbl = new System.Windows.Forms.Label();
             this.desLbl = new System.Windows.Forms.Label();
             this.nameLbl = new System.Windows.Forms.Label();
             this.barcodeBox = new System.Windows.Forms.TextBox();
@@ -56,11 +61,7 @@
             this.productStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productBarcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.topPanel = new System.Windows.Forms.Panel();
-            this.brandIDLbl = new System.Windows.Forms.Label();
-            this.categoryIDLbl = new System.Windows.Forms.Label();
-            this.priceLbl = new System.Windows.Forms.Label();
-            this.stockLbl = new System.Windows.Forms.Label();
-            this.barcodeLbl = new System.Windows.Forms.Label();
+            this.clearBtn = new System.Windows.Forms.Button();
             this.leftPanel.SuspendLayout();
             this.panel1.SuspendLayout();
             this.prodcutPanel.SuspendLayout();
@@ -85,6 +86,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(160)))), ((int)(((byte)(140)))));
+            this.panel1.Controls.Add(this.clearBtn);
             this.panel1.Controls.Add(this.barcodeLbl);
             this.panel1.Controls.Add(this.stockLbl);
             this.panel1.Controls.Add(this.priceLbl);
@@ -107,6 +109,61 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(381, 421);
             this.panel1.TabIndex = 6;
+            // 
+            // barcodeLbl
+            // 
+            this.barcodeLbl.AutoSize = true;
+            this.barcodeLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.barcodeLbl.ForeColor = System.Drawing.SystemColors.MenuBar;
+            this.barcodeLbl.Location = new System.Drawing.Point(31, 278);
+            this.barcodeLbl.Name = "barcodeLbl";
+            this.barcodeLbl.Size = new System.Drawing.Size(68, 18);
+            this.barcodeLbl.TabIndex = 31;
+            this.barcodeLbl.Text = "Barcode:";
+            // 
+            // stockLbl
+            // 
+            this.stockLbl.AutoSize = true;
+            this.stockLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.stockLbl.ForeColor = System.Drawing.SystemColors.MenuBar;
+            this.stockLbl.Location = new System.Drawing.Point(53, 236);
+            this.stockLbl.Name = "stockLbl";
+            this.stockLbl.Size = new System.Drawing.Size(51, 18);
+            this.stockLbl.TabIndex = 30;
+            this.stockLbl.Text = "Stock:";
+            // 
+            // priceLbl
+            // 
+            this.priceLbl.AutoSize = true;
+            this.priceLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.priceLbl.ForeColor = System.Drawing.SystemColors.MenuBar;
+            this.priceLbl.Location = new System.Drawing.Point(53, 198);
+            this.priceLbl.Name = "priceLbl";
+            this.priceLbl.Size = new System.Drawing.Size(46, 18);
+            this.priceLbl.TabIndex = 29;
+            this.priceLbl.Text = "Price:";
+            // 
+            // categoryIDLbl
+            // 
+            this.categoryIDLbl.AutoSize = true;
+            this.categoryIDLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.categoryIDLbl.ForeColor = System.Drawing.SystemColors.MenuBar;
+            this.categoryIDLbl.Location = new System.Drawing.Point(9, 159);
+            this.categoryIDLbl.Name = "categoryIDLbl";
+            this.categoryIDLbl.Size = new System.Drawing.Size(90, 18);
+            this.categoryIDLbl.TabIndex = 28;
+            this.categoryIDLbl.Text = "Category ID:";
+            // 
+            // brandIDLbl
+            // 
+            this.brandIDLbl.AutoSize = true;
+            this.brandIDLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.brandIDLbl.ForeColor = System.Drawing.SystemColors.MenuBar;
+            this.brandIDLbl.Location = new System.Drawing.Point(30, 118);
+            this.brandIDLbl.Name = "brandIDLbl";
+            this.brandIDLbl.Size = new System.Drawing.Size(69, 18);
+            this.brandIDLbl.TabIndex = 27;
+            this.brandIDLbl.Text = "Brand ID:";
             // 
             // desLbl
             // 
@@ -174,7 +231,7 @@
             // 
             // cancelBtn
             // 
-            this.cancelBtn.Location = new System.Drawing.Point(139, 349);
+            this.cancelBtn.Location = new System.Drawing.Point(186, 349);
             this.cancelBtn.Name = "cancelBtn";
             this.cancelBtn.Size = new System.Drawing.Size(75, 23);
             this.cancelBtn.TabIndex = 18;
@@ -206,6 +263,7 @@
             this.addBtn.TabIndex = 14;
             this.addBtn.Text = "Add";
             this.addBtn.UseVisualStyleBackColor = true;
+            this.addBtn.Click += new System.EventHandler(this.addBtn_Click);
             // 
             // deleteBtn
             // 
@@ -263,6 +321,8 @@
             this.productTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.productTable.Size = new System.Drawing.Size(806, 421);
             this.productTable.TabIndex = 4;
+            this.productTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.productTable_CellContentClick);
+            this.productTable.SelectionChanged += new System.EventHandler(this.productTable_SelectionChanged);
             // 
             // productID
             // 
@@ -331,60 +391,15 @@
             this.topPanel.Size = new System.Drawing.Size(1184, 41);
             this.topPanel.TabIndex = 1;
             // 
-            // brandIDLbl
+            // clearBtn
             // 
-            this.brandIDLbl.AutoSize = true;
-            this.brandIDLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.brandIDLbl.ForeColor = System.Drawing.SystemColors.MenuBar;
-            this.brandIDLbl.Location = new System.Drawing.Point(30, 118);
-            this.brandIDLbl.Name = "brandIDLbl";
-            this.brandIDLbl.Size = new System.Drawing.Size(69, 18);
-            this.brandIDLbl.TabIndex = 27;
-            this.brandIDLbl.Text = "Brand ID:";
-            // 
-            // categoryIDLbl
-            // 
-            this.categoryIDLbl.AutoSize = true;
-            this.categoryIDLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.categoryIDLbl.ForeColor = System.Drawing.SystemColors.MenuBar;
-            this.categoryIDLbl.Location = new System.Drawing.Point(9, 159);
-            this.categoryIDLbl.Name = "categoryIDLbl";
-            this.categoryIDLbl.Size = new System.Drawing.Size(90, 18);
-            this.categoryIDLbl.TabIndex = 28;
-            this.categoryIDLbl.Text = "Category ID:";
-            // 
-            // priceLbl
-            // 
-            this.priceLbl.AutoSize = true;
-            this.priceLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.priceLbl.ForeColor = System.Drawing.SystemColors.MenuBar;
-            this.priceLbl.Location = new System.Drawing.Point(53, 198);
-            this.priceLbl.Name = "priceLbl";
-            this.priceLbl.Size = new System.Drawing.Size(46, 18);
-            this.priceLbl.TabIndex = 29;
-            this.priceLbl.Text = "Price:";
-            // 
-            // stockLbl
-            // 
-            this.stockLbl.AutoSize = true;
-            this.stockLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.stockLbl.ForeColor = System.Drawing.SystemColors.MenuBar;
-            this.stockLbl.Location = new System.Drawing.Point(53, 236);
-            this.stockLbl.Name = "stockLbl";
-            this.stockLbl.Size = new System.Drawing.Size(51, 18);
-            this.stockLbl.TabIndex = 30;
-            this.stockLbl.Text = "Stock:";
-            // 
-            // barcodeLbl
-            // 
-            this.barcodeLbl.AutoSize = true;
-            this.barcodeLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.barcodeLbl.ForeColor = System.Drawing.SystemColors.MenuBar;
-            this.barcodeLbl.Location = new System.Drawing.Point(31, 278);
-            this.barcodeLbl.Name = "barcodeLbl";
-            this.barcodeLbl.Size = new System.Drawing.Size(68, 18);
-            this.barcodeLbl.TabIndex = 31;
-            this.barcodeLbl.Text = "Barcode:";
+            this.clearBtn.Location = new System.Drawing.Point(105, 349);
+            this.clearBtn.Name = "clearBtn";
+            this.clearBtn.Size = new System.Drawing.Size(75, 23);
+            this.clearBtn.TabIndex = 32;
+            this.clearBtn.Text = "Clear";
+            this.clearBtn.UseVisualStyleBackColor = true;
+            this.clearBtn.Click += new System.EventHandler(this.clearBtn_Click);
             // 
             // ManageProduct
             // 
@@ -441,5 +456,6 @@
         private System.Windows.Forms.Label priceLbl;
         private System.Windows.Forms.Label stockLbl;
         private System.Windows.Forms.Label barcodeLbl;
+        private System.Windows.Forms.Button clearBtn;
     }
 }

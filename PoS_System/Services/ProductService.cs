@@ -10,6 +10,7 @@ namespace PoS_System.Services
 {
     interface ProductService
     {
-        List<Product> getAllProducts();   
+        List<Product> getAllProducts();
+        void addProduct(Product product);
     }
 }

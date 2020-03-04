@@ -47,6 +47,17 @@ namespace PoS_System.Model
             
         }
 
+        public Product(string name, string description,long brandID, long categoryID, double price, long stock, long barcode)
+        {
+            this.name = name;
+            this.description = description;
+            this.brandID = brandID;
+            this.categoryID = categoryID;
+            this.price = price;
+            this.stock = stock;
+            this.barcode = barcode;
+        }
+
         public long Id { get => id; set => id = value; }
         public string Name { get => name; set => name = value; }
         public double Price { get => price; set => price = value; }
