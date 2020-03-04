@@ -11,11 +11,10 @@ namespace PoS_System.DAO
     class ProductDAO
     {
         private MySqlConnection connection;
+        private Connector connector = new Connector();
         public ProductDAO()
         {
-           
-            string connectionString = "Server = 127.0.0.1; Port= 3306; Database=pos_project; Uid=root; Pwd=Setkl24072001";
-            connection = new MySqlConnection(connectionString);
+            connection = connector.Connection;
 
         }
             public List<Product> getAllProducts() {

@@ -11,10 +11,13 @@ D:\PoS\PoS_System\PoS_System\obj\Debug\PoSSystem.csprojAssemblyReference.cache
 D:\PoS\PoS_System\PoS_System\obj\Debug\PoS_System.Properties.Resources.resources
 D:\PoS\PoS_System\PoS_System\obj\Debug\PoS_System.View.FirstPage.resources
 D:\PoS\PoS_System\PoS_System\obj\Debug\PoS_System.View.Login.resources
-D:\PoS\PoS_System\PoS_System\obj\Debug\PoS_System.View.MainPage.resources
 D:\PoS\PoS_System\PoS_System\obj\Debug\PoS_System.View.ManageBrand.resources
 D:\PoS\PoS_System\PoS_System\obj\Debug\PoSSystem.csproj.GenerateResource.cache
 D:\PoS\PoS_System\PoS_System\obj\Debug\PoSSystem.csproj.CopyComplete
 D:\PoS\PoS_System\PoS_System\obj\Debug\PoS_System.exe
 D:\PoS\PoS_System\PoS_System\obj\Debug\PoS_System.pdb
 D:\PoS\PoS_System\PoS_System\obj\Debug\PoS_System.View.SignUp.resources
+D:\PoS\PoS_System\PoS_System\bin\Debug\PoS_System.exe.manifest
+D:\PoS\PoS_System\PoS_System\bin\Debug\PoS_System.application
+D:\PoS\PoS_System\PoS_System\obj\Debug\PoS_System.exe.manifest
+D:\PoS\PoS_System\PoS_System\obj\Debug\PoS_System.application

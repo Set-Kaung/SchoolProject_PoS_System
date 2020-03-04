@@ -17,7 +17,8 @@ namespace PoS_System.View
         BrandService brandService = new BrandServiceImpl();
         CategoryService categoryService = new CategoryServiceImpl();
         ProductService productService = new ProductServiceImpl();
-
+        
+        
         public FirstPage()
         {
             InitializeComponent();
@@ -25,14 +26,26 @@ namespace PoS_System.View
 
         public void loadBrands()
         {
-            List<Brand> brands = brandService.loadBrands();
-            foreach (Brand brand in brands)
+            if (brandTable.Rows.Count == 0)
             {
-                brandTable.Rows.Add(brand.Id, brand.Name);
+                List<Brand> brands = brandService.loadBrands();
+                foreach (Brand brand in brands)
+                {
+                    brandTable.Rows.Add(brand.Id, brand.Name);
+                }
+            }
+            else if (brandTable.Rows.Count > 0)
+            {
+                brandTable.Rows.Clear();
+                List<Brand> brands = brandService.loadBrands();
+                foreach (Brand brand in brands)
+                {
+                    brandTable.Rows.Add(brand.Id, brand.Name);
+                }
             }
         }
 
-        public void loadCategories()
+            public void loadCategories()
         {
             List<Category> categories = categoryService.getAllCategories();
             foreach (Category category in categories)
@@ -51,10 +64,7 @@ namespace PoS_System.View
         }
 
 
-        private void profileIcon_Click(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void logoutBtn_Click(object sender, EventArgs e)
         {
@@ -65,16 +75,9 @@ namespace PoS_System.View
             }
         }
 
-        private void manageBrandBtn_Click(object sender, EventArgs e)
-        {
+       
 
-
-        }
-
-        private void manageCategoryBtn_Click(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void FirstPage_Load(object sender, EventArgs e)
         {
@@ -83,15 +86,23 @@ namespace PoS_System.View
             loadProducts();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void manageBrandBtn_Click(object sender, EventArgs e)
+        {
+            ManageBrand manageBrand = ManageBrand.createInstance();
+            manageBrand.ShowDialog();
+            if (manageBrand.Focused == false) 
+            {
+                this.Focus();
+                loadBrands();
+            }
+            
+            
+        }
+
+        private void brandTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
-
-        private void searchToolTip_Popup(object sender, PopupEventArgs e)
-        {
-
-        }
-
     }
+    
 }

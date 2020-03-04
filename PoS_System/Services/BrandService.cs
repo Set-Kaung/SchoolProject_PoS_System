@@ -10,5 +10,8 @@ namespace PoS_System.Services
     interface BrandService
     {
         List<Brand> loadBrands();
+        void addBrand(string name);
+
+        int deleteBrand(long id);
     }
 }

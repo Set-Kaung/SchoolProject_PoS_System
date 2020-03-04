@@ -11,10 +11,10 @@ namespace PoS_System.DAO
     class CategoryDAO
     {
         private MySqlConnection connection;
+        private Connector connector = new Connector();
         public CategoryDAO()
         {
-            string connectionString = "Server = 127.0.0.1; Port= 3306; Database=pos_project; Uid=root; Pwd=Setkl24072001";
-            connection = new MySqlConnection(connectionString);
+            connection = connector.Connection;
 
         }
 
@@ -45,6 +45,104 @@ namespace PoS_System.DAO
             }
             return categories;
         }
+        public void updateCategory(long id, string name)
+        {
+            try
+            {
+                connection.Open();
+                MySqlCommand command = new MySqlCommand(null, connection);
 
+                command.CommandText = "UPDATE category SET Name=@name WHERE ID=@id";
+
+                MySqlParameter idParam = new MySqlParameter("@id", MySqlDbType.Int64, 0);
+                MySqlParameter nameParam = new MySqlParameter("@name", MySqlDbType.Text, 100);
+
+                idParam.Value = id;
+                nameParam.Value = name;
+
+                command.Parameters.Add(idParam);
+                command.Parameters.Add(nameParam);
+
+                command.Prepare();
+                command.ExecuteNonQuery();
+
+
+
+            }
+            catch (MySqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+        public void deleteCategory(long id)
+        {
+            try
+            {
+                connection.Open();
+                MySqlCommand command = new MySqlCommand(null, connection);
+                command.CommandText = "DELETE FROM category WHERE ID=@id";
+
+                MySqlParameter idParam = new MySqlParameter("@id", MySqlDbType.Int64, 0);
+
+                idParam.Value = id;
+                command.Parameters.Add(idParam);
+
+                command.Prepare();
+                command.ExecuteNonQuery();
+
+            }
+            catch (MySqlException ex)
+            {
+
+
+                if (ex.ErrorCode.Equals(-2147467259))
+                {
+                    Console.WriteLine("You can't delete a row that is refrenced elsewhere.");
+                }
+                else
+                {
+                    Console.WriteLine(ex.Message);
+                }
+
+            }
+
+            finally
+            {
+                connection.Close();
+            }
+        }
+        public void addCategory(string name)
+        {
+            try
+            {
+                connection.Open();
+                MySqlCommand command = new MySqlCommand(null, connection);
+
+                command.CommandText = "INSERT INTO category (Name) VALUES(@name)";
+
+              
+                MySqlParameter nameParam = new MySqlParameter("@name", MySqlDbType.Text, 100);
+
+                nameParam.Value = name;
+
+                command.Parameters.Add(nameParam);
+
+                command.Prepare();
+                command.ExecuteNonQuery();
+            }
+            catch (MySqlException ex)
+            {
+
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
     }
 }

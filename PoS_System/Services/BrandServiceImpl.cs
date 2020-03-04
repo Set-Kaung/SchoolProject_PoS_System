@@ -11,13 +11,23 @@ namespace PoS_System.Services
 {
     class BrandServiceImpl : BrandService
     {
-        private BrandDAO dao = new BrandDAO();
+        private BrandDAO brandDAO = new BrandDAO();
         public List<Brand> loadBrands()
         {
             List<Brand> brands = new List<Brand>();
-            brands = dao.getAllBrands();
+            brands = brandDAO.getAllBrands();
             return brands;
 
+        }
+
+        public void addBrand(string name) 
+        {
+            brandDAO.addBrand(name);   
+        }
+
+        public int deleteBrand(long id) 
+        {
+            return brandDAO.deleteBrand(id);
         }
     }
 }

@@ -21,10 +21,6 @@ namespace PoS_System
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Login());
 
-            /* BrandDAO brandDAO = new BrandDAO();
-             List<Brand> brands = brandDAO.GetBrands();
-             Console.WriteLine(brands.Count.ToString());*/
-
         }
     }
 }
