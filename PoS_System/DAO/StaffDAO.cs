@@ -31,8 +31,9 @@ namespace PoS_System.DAO
                     long id = long.Parse(rdr["ID"].ToString());
                     string name = rdr["Name"].ToString();
                     string password = rdr["Password"].ToString();
+                    long role = long.Parse(rdr["Role_ID"].ToString());
 
-                    Staff staff = new Staff(id, name, password);
+                    Staff staff = new Staff(id, name, password,role);
                     staffs.Add(staff);
                 }
             }
@@ -46,7 +47,7 @@ namespace PoS_System.DAO
             }
             return staffs;
         }
-        public void addStaff(string username, string hashedPassword) 
+        public void addStaff(string username, string hashedPassword,long role) 
         {
             string name = username;
             string password = hashedPassword; //this will accept hased password from the service layer
@@ -55,16 +56,19 @@ namespace PoS_System.DAO
                 connection.Open();
                 MySqlCommand command = new MySqlCommand(null, connection);
                 command.CommandText =
-                "INSERT INTO staff(Name, Password) " +
-                "VALUES (@name, @pwd)";
+                "INSERT INTO staff(Name, Password,Role_ID) " +
+                "VALUES (@name, @pwd,@role)";
                 MySqlParameter nameParam = new MySqlParameter("@name", MySqlDbType.Text, 100);
                 MySqlParameter pwdParam = new MySqlParameter("@pwd", MySqlDbType.Text, 100);
+                MySqlParameter roleParam = new MySqlParameter("@role",MySqlDbType.Int64,0);
 
                 nameParam.Value = name;
                 pwdParam.Value = password;
+                roleParam.Value = role;
 
                 command.Parameters.Add(nameParam);
                 command.Parameters.Add(pwdParam);
+                command.Parameters.Add(roleParam);
 
                 command.Prepare();
                 command.ExecuteNonQuery();

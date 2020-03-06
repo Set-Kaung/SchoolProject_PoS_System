@@ -45,14 +45,6 @@
             this.categoryName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.categoryPanel = new System.Windows.Forms.Panel();
             this.productTable = new System.Windows.Forms.DataGridView();
-            this.productID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productBrand = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productBarcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prodcutPanel = new System.Windows.Forms.Panel();
             this.searchBtn = new System.Windows.Forms.Button();
             this.usernameLbl = new System.Windows.Forms.Label();
@@ -64,6 +56,13 @@
             this.manageBrandBtn = new System.Windows.Forms.Button();
             this.profileIcon = new System.Windows.Forms.PictureBox();
             this.refreshBtn = new System.Windows.Forms.Button();
+            this.productBarcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productBrand = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.brandTable)).BeginInit();
             this.brandPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.categoryTable)).BeginInit();
@@ -215,14 +214,13 @@
             this.productTable.ColumnHeadersHeight = 30;
             this.productTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.productTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.productID,
+            this.productBarcode,
             this.productName,
             this.productDescription,
             this.productBrand,
             this.productCategory,
             this.productPrice,
-            this.productStock,
-            this.productBarcode});
+            this.productStock});
             this.productTable.Dock = System.Windows.Forms.DockStyle.Fill;
             this.productTable.EnableHeadersVisualStyles = false;
             this.productTable.Location = new System.Drawing.Point(0, 0);
@@ -231,63 +229,6 @@
             this.productTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.productTable.Size = new System.Drawing.Size(928, 308);
             this.productTable.TabIndex = 4;
-            // 
-            // productID
-            // 
-            this.productID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.productID.HeaderText = "ID";
-            this.productID.Name = "productID";
-            this.productID.ReadOnly = true;
-            this.productID.Width = 45;
-            // 
-            // productName
-            // 
-            this.productName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.productName.HeaderText = "Product Name";
-            this.productName.Name = "productName";
-            this.productName.ReadOnly = true;
-            // 
-            // productDescription
-            // 
-            this.productDescription.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.productDescription.HeaderText = "Description";
-            this.productDescription.Name = "productDescription";
-            this.productDescription.ReadOnly = true;
-            // 
-            // productBrand
-            // 
-            this.productBrand.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.productBrand.HeaderText = "Brand ID";
-            this.productBrand.Name = "productBrand";
-            this.productBrand.ReadOnly = true;
-            // 
-            // productCategory
-            // 
-            this.productCategory.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.productCategory.HeaderText = "Category ID";
-            this.productCategory.Name = "productCategory";
-            this.productCategory.ReadOnly = true;
-            // 
-            // productPrice
-            // 
-            this.productPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.productPrice.HeaderText = "Price";
-            this.productPrice.Name = "productPrice";
-            this.productPrice.ReadOnly = true;
-            // 
-            // productStock
-            // 
-            this.productStock.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.productStock.HeaderText = "Stock";
-            this.productStock.Name = "productStock";
-            this.productStock.ReadOnly = true;
-            // 
-            // productBarcode
-            // 
-            this.productBarcode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.productBarcode.HeaderText = "Barcode";
-            this.productBarcode.Name = "productBarcode";
-            this.productBarcode.ReadOnly = true;
             // 
             // prodcutPanel
             // 
@@ -426,6 +367,56 @@
             this.refreshBtn.UseVisualStyleBackColor = true;
             this.refreshBtn.Click += new System.EventHandler(this.refreshBtn_Click);
             // 
+            // productBarcode
+            // 
+            this.productBarcode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.productBarcode.HeaderText = "Bracode";
+            this.productBarcode.Name = "productBarcode";
+            this.productBarcode.ReadOnly = true;
+            this.productBarcode.Width = 87;
+            // 
+            // productName
+            // 
+            this.productName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.productName.HeaderText = "Product Name";
+            this.productName.Name = "productName";
+            this.productName.ReadOnly = true;
+            // 
+            // productDescription
+            // 
+            this.productDescription.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.productDescription.HeaderText = "Description";
+            this.productDescription.Name = "productDescription";
+            this.productDescription.ReadOnly = true;
+            // 
+            // productBrand
+            // 
+            this.productBrand.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.productBrand.HeaderText = "Brand ID";
+            this.productBrand.Name = "productBrand";
+            this.productBrand.ReadOnly = true;
+            // 
+            // productCategory
+            // 
+            this.productCategory.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.productCategory.HeaderText = "Category ID";
+            this.productCategory.Name = "productCategory";
+            this.productCategory.ReadOnly = true;
+            // 
+            // productPrice
+            // 
+            this.productPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.productPrice.HeaderText = "Price";
+            this.productPrice.Name = "productPrice";
+            this.productPrice.ReadOnly = true;
+            // 
+            // productStock
+            // 
+            this.productStock.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.productStock.HeaderText = "Stock";
+            this.productStock.Name = "productStock";
+            this.productStock.ReadOnly = true;
+            // 
             // FirstPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -483,16 +474,15 @@
         private System.Windows.Forms.Panel leftPanel;
         private System.Windows.Forms.DataGridViewTextBoxColumn categoryID;
         private System.Windows.Forms.DataGridViewTextBoxColumn categoryName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn productID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn brandID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn brandName;
+        private System.Windows.Forms.Button refreshBtn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productBarcode;
         private System.Windows.Forms.DataGridViewTextBoxColumn productName;
         private System.Windows.Forms.DataGridViewTextBoxColumn productDescription;
         private System.Windows.Forms.DataGridViewTextBoxColumn productBrand;
         private System.Windows.Forms.DataGridViewTextBoxColumn productCategory;
         private System.Windows.Forms.DataGridViewTextBoxColumn productPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn productStock;
-        private System.Windows.Forms.DataGridViewTextBoxColumn productBarcode;
-        private System.Windows.Forms.DataGridViewTextBoxColumn brandID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn brandName;
-        private System.Windows.Forms.Button refreshBtn;
     }
 }

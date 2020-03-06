@@ -27,16 +27,16 @@ namespace PoS_System.DAO
                     MySqlDataReader rdr = command.ExecuteReader();
                     while (rdr.Read())
                     {
-                        long id = long.Parse(rdr["ID"].ToString());
+                        long barcode = long.Parse(rdr["Barcode"].ToString());
                         string name = rdr["Name"].ToString();
                         string description = rdr["Description"].ToString();
                         long brandID = long.Parse(rdr["Brand_ID"].ToString());
                         long categoryID = long.Parse(rdr["Category_ID"].ToString());
                         double price = double.Parse(rdr["Price"].ToString());
                         long stock = long.Parse(rdr["Stock"].ToString());
-                        long barcode = long.Parse(rdr["Barcode"].ToString());
+                        
 
-                        Product product = new Product(id, name, description, brandID, categoryID, price, stock, barcode);
+                        Product product = new Product(barcode, name, description, brandID, categoryID, price, stock);
                         products.Add(product);
 
                     }
@@ -59,31 +59,32 @@ namespace PoS_System.DAO
             {
                 connection.Open();
                 MySqlCommand command = new MySqlCommand(null, connection);
-                command.CommandText = "INSERT INTO product (Name,Description,Brand_ID,Category_ID,Price,Stock,Barcode) VALUES(@name,@des,@brand,@category,@price,@stock,@barcode)";
+                command.CommandText = "INSERT INTO product (Barcode,Name,Description,Brand_ID,Category_ID,Price,Stock) VALUES(@barcode,@name,@des,@brand,@category,@price,@stock)";
 
+                MySqlParameter barcodeParam = new MySqlParameter("@barcode", MySqlDbType.Int64, 0);
                 MySqlParameter nameParam = new MySqlParameter("@name", MySqlDbType.Text, 100);
                 MySqlParameter desParam = new MySqlParameter("@des", MySqlDbType.Text, 100);
                 MySqlParameter brandParam = new MySqlParameter("@brand", MySqlDbType.Int64, 0);
                 MySqlParameter categoryParam = new MySqlParameter("@category", MySqlDbType.Int64, 0);
                 MySqlParameter priceParam = new MySqlParameter("@price", MySqlDbType.Double, 0);
                 MySqlParameter stockParam = new MySqlParameter("@stock", MySqlDbType.Int64, 0);
-                MySqlParameter barcodeParam = new MySqlParameter("@barcode", MySqlDbType.Int64, 0);
 
+                barcodeParam.Value = product.Barcode;
                 nameParam.Value = product.Name;
                 desParam.Value = product.Description;
                 brandParam.Value = product.BrandID;
                 categoryParam.Value = product.CategoryID;
                 priceParam.Value = product.Price;
                 stockParam.Value = product.Stock;
-                barcodeParam.Value = product.Barcode;
 
+                command.Parameters.Add(barcodeParam);
                 command.Parameters.Add(nameParam);
                 command.Parameters.Add(desParam);
                 command.Parameters.Add(brandParam);
                 command.Parameters.Add(categoryParam);
                 command.Parameters.Add(priceParam);
                 command.Parameters.Add(stockParam);
-                command.Parameters.Add(barcodeParam);
+                
 
                 command.Prepare();
                 command.ExecuteNonQuery();
@@ -100,7 +101,7 @@ namespace PoS_System.DAO
             }
         }
 
-        public int deleteProduct(long id) 
+        public int deleteProduct(long barcode) 
         {
             int status = 0;
 
@@ -108,13 +109,13 @@ namespace PoS_System.DAO
             {
                 connection.Open();
                 MySqlCommand command = new MySqlCommand(null, connection);
-                command.CommandText = "DELETE FROM product WHERE ID=@id";
+                command.CommandText = "DELETE FROM product WHERE Barcode=@barcode";
 
-                MySqlParameter idParam = new MySqlParameter("@id", MySqlDbType.Int64, 0);
+                MySqlParameter barcodeParam = new MySqlParameter("@id", MySqlDbType.Int64, 0);
 
-                idParam.Value = id;
+                barcodeParam.Value = barcode;
 
-                command.Parameters.Add(idParam);
+                command.Parameters.Add(barcodeParam);
 
                 command.Prepare();
                 command.ExecuteNonQuery();
@@ -145,27 +146,26 @@ namespace PoS_System.DAO
             {
                 connection.Open();
                 MySqlCommand command = new MySqlCommand(null, connection);
-                command.CommandText = "UPDATE product SET Name=@name,Description=@des,Brand_ID=@brand,Category_ID=@category,Price=@price,Stock=@stock,Barcode=@barcode WHERE ID=@id";
+                command.CommandText = "UPDATE product SET Name=@name,Description=@des,Brand_ID=@brand,Category_ID=@category,Price=@price,Stock=@stock WHERE Barcode=@barcode";
 
-                MySqlParameter idParam = new MySqlParameter("@id", MySqlDbType.Int64, 0);
+                MySqlParameter barcodeParam = new MySqlParameter("@barcode", MySqlDbType.Int64, 0);
                 MySqlParameter nameParam = new MySqlParameter("@name", MySqlDbType.Text, 100);
                 MySqlParameter desParam = new MySqlParameter("@des", MySqlDbType.Text, 100);
                 MySqlParameter brandParam = new MySqlParameter("@brand", MySqlDbType.Int64, 0);
                 MySqlParameter categoryParam = new MySqlParameter("@category", MySqlDbType.Int64, 0);
                 MySqlParameter priceParam = new MySqlParameter("@price", MySqlDbType.Double, 0);
                 MySqlParameter stockParam = new MySqlParameter("@stock", MySqlDbType.Int64, 0);
-                MySqlParameter barcodeParam = new MySqlParameter("@barcode", MySqlDbType.Int64, 0);
+                
 
-                idParam.Value = product.Id;
+                barcodeParam.Value = product.Barcode;
                 nameParam.Value = product.Name;
                 desParam.Value = product.Description;
                 brandParam.Value = product.BrandID;
                 categoryParam.Value = product.CategoryID;
                 priceParam.Value = product.Price;
                 stockParam.Value = product.Stock;
-                barcodeParam.Value = product.Barcode;
+                
 
-                command.Parameters.Add(idParam);
                 command.Parameters.Add(nameParam);
                 command.Parameters.Add(desParam);
                 command.Parameters.Add(brandParam);

@@ -53,14 +53,13 @@
             this.deleteBtn = new System.Windows.Forms.Button();
             this.prodcutPanel = new System.Windows.Forms.Panel();
             this.productTable = new System.Windows.Forms.DataGridView();
-            this.productID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productBarcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productBrand = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productBarcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.topPanel = new System.Windows.Forms.Panel();
             this.leftPanel.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -125,7 +124,7 @@
             this.barcodeLbl.AutoSize = true;
             this.barcodeLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.barcodeLbl.ForeColor = System.Drawing.SystemColors.MenuBar;
-            this.barcodeLbl.Location = new System.Drawing.Point(31, 278);
+            this.barcodeLbl.Location = new System.Drawing.Point(28, 39);
             this.barcodeLbl.Name = "barcodeLbl";
             this.barcodeLbl.Size = new System.Drawing.Size(68, 18);
             this.barcodeLbl.TabIndex = 31;
@@ -136,7 +135,7 @@
             this.stockLbl.AutoSize = true;
             this.stockLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.stockLbl.ForeColor = System.Drawing.SystemColors.MenuBar;
-            this.stockLbl.Location = new System.Drawing.Point(53, 236);
+            this.stockLbl.Location = new System.Drawing.Point(50, 266);
             this.stockLbl.Name = "stockLbl";
             this.stockLbl.Size = new System.Drawing.Size(51, 18);
             this.stockLbl.TabIndex = 30;
@@ -147,7 +146,7 @@
             this.priceLbl.AutoSize = true;
             this.priceLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.priceLbl.ForeColor = System.Drawing.SystemColors.MenuBar;
-            this.priceLbl.Location = new System.Drawing.Point(53, 198);
+            this.priceLbl.Location = new System.Drawing.Point(50, 228);
             this.priceLbl.Name = "priceLbl";
             this.priceLbl.Size = new System.Drawing.Size(46, 18);
             this.priceLbl.TabIndex = 29;
@@ -158,7 +157,7 @@
             this.categoryIDLbl.AutoSize = true;
             this.categoryIDLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.categoryIDLbl.ForeColor = System.Drawing.SystemColors.MenuBar;
-            this.categoryIDLbl.Location = new System.Drawing.Point(9, 159);
+            this.categoryIDLbl.Location = new System.Drawing.Point(6, 189);
             this.categoryIDLbl.Name = "categoryIDLbl";
             this.categoryIDLbl.Size = new System.Drawing.Size(90, 18);
             this.categoryIDLbl.TabIndex = 28;
@@ -169,7 +168,7 @@
             this.brandIDLbl.AutoSize = true;
             this.brandIDLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.brandIDLbl.ForeColor = System.Drawing.SystemColors.MenuBar;
-            this.brandIDLbl.Location = new System.Drawing.Point(30, 118);
+            this.brandIDLbl.Location = new System.Drawing.Point(27, 148);
             this.brandIDLbl.Name = "brandIDLbl";
             this.brandIDLbl.Size = new System.Drawing.Size(69, 18);
             this.brandIDLbl.TabIndex = 27;
@@ -180,7 +179,7 @@
             this.desLbl.AutoSize = true;
             this.desLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.desLbl.ForeColor = System.Drawing.SystemColors.MenuBar;
-            this.desLbl.Location = new System.Drawing.Point(12, 77);
+            this.desLbl.Location = new System.Drawing.Point(9, 107);
             this.desLbl.Name = "desLbl";
             this.desLbl.Size = new System.Drawing.Size(87, 18);
             this.desLbl.TabIndex = 26;
@@ -191,7 +190,7 @@
             this.nameLbl.AutoSize = true;
             this.nameLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nameLbl.ForeColor = System.Drawing.SystemColors.MenuBar;
-            this.nameLbl.Location = new System.Drawing.Point(47, 42);
+            this.nameLbl.Location = new System.Drawing.Point(44, 72);
             this.nameLbl.Name = "nameLbl";
             this.nameLbl.Size = new System.Drawing.Size(52, 18);
             this.nameLbl.TabIndex = 25;
@@ -199,42 +198,42 @@
             // 
             // barcodeBox
             // 
-            this.barcodeBox.Location = new System.Drawing.Point(108, 276);
+            this.barcodeBox.Location = new System.Drawing.Point(105, 37);
             this.barcodeBox.Name = "barcodeBox";
             this.barcodeBox.Size = new System.Drawing.Size(233, 20);
             this.barcodeBox.TabIndex = 24;
             // 
             // stockBox
             // 
-            this.stockBox.Location = new System.Drawing.Point(108, 236);
+            this.stockBox.Location = new System.Drawing.Point(105, 266);
             this.stockBox.Name = "stockBox";
             this.stockBox.Size = new System.Drawing.Size(233, 20);
             this.stockBox.TabIndex = 23;
             // 
             // priceBox
             // 
-            this.priceBox.Location = new System.Drawing.Point(108, 196);
+            this.priceBox.Location = new System.Drawing.Point(105, 226);
             this.priceBox.Name = "priceBox";
             this.priceBox.Size = new System.Drawing.Size(233, 20);
             this.priceBox.TabIndex = 22;
             // 
             // categoryIDBox
             // 
-            this.categoryIDBox.Location = new System.Drawing.Point(108, 157);
+            this.categoryIDBox.Location = new System.Drawing.Point(105, 187);
             this.categoryIDBox.Name = "categoryIDBox";
             this.categoryIDBox.Size = new System.Drawing.Size(233, 20);
             this.categoryIDBox.TabIndex = 21;
             // 
             // brandIDBox
             // 
-            this.brandIDBox.Location = new System.Drawing.Point(108, 116);
+            this.brandIDBox.Location = new System.Drawing.Point(105, 146);
             this.brandIDBox.Name = "brandIDBox";
             this.brandIDBox.Size = new System.Drawing.Size(233, 20);
             this.brandIDBox.TabIndex = 20;
             // 
             // desBox
             // 
-            this.desBox.Location = new System.Drawing.Point(108, 78);
+            this.desBox.Location = new System.Drawing.Point(105, 108);
             this.desBox.Name = "desBox";
             this.desBox.Size = new System.Drawing.Size(233, 20);
             this.desBox.TabIndex = 19;
@@ -261,7 +260,7 @@
             // 
             // nameBox
             // 
-            this.nameBox.Location = new System.Drawing.Point(108, 42);
+            this.nameBox.Location = new System.Drawing.Point(105, 72);
             this.nameBox.Name = "nameBox";
             this.nameBox.Size = new System.Drawing.Size(233, 20);
             this.nameBox.TabIndex = 17;
@@ -318,14 +317,13 @@
             this.productTable.ColumnHeadersHeight = 30;
             this.productTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.productTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.productID,
+            this.productBarcode,
             this.productName,
             this.productDescription,
             this.productBrand,
             this.productCategory,
             this.productPrice,
-            this.productStock,
-            this.productBarcode});
+            this.productStock});
             this.productTable.EnableHeadersVisualStyles = false;
             this.productTable.Location = new System.Drawing.Point(0, 0);
             this.productTable.Name = "productTable";
@@ -336,13 +334,13 @@
             this.productTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.productTable_CellContentClick);
             this.productTable.SelectionChanged += new System.EventHandler(this.productTable_SelectionChanged);
             // 
-            // productID
+            // productBarcode
             // 
-            this.productID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.productID.HeaderText = "ID";
-            this.productID.Name = "productID";
-            this.productID.ReadOnly = true;
-            this.productID.Width = 45;
+            this.productBarcode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.productBarcode.HeaderText = "Barcode";
+            this.productBarcode.Name = "productBarcode";
+            this.productBarcode.ReadOnly = true;
+            this.productBarcode.Width = 87;
             // 
             // productName
             // 
@@ -386,13 +384,6 @@
             this.productStock.Name = "productStock";
             this.productStock.ReadOnly = true;
             // 
-            // productBarcode
-            // 
-            this.productBarcode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.productBarcode.HeaderText = "Barcode";
-            this.productBarcode.Name = "productBarcode";
-            this.productBarcode.ReadOnly = true;
-            // 
             // topPanel
             // 
             this.topPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -431,14 +422,6 @@
         private System.Windows.Forms.Panel topPanel;
         private System.Windows.Forms.Panel prodcutPanel;
         private System.Windows.Forms.DataGridView productTable;
-        private System.Windows.Forms.DataGridViewTextBoxColumn productID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn productName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn productDescription;
-        private System.Windows.Forms.DataGridViewTextBoxColumn productBrand;
-        private System.Windows.Forms.DataGridViewTextBoxColumn productCategory;
-        private System.Windows.Forms.DataGridViewTextBoxColumn productPrice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn productStock;
-        private System.Windows.Forms.DataGridViewTextBoxColumn productBarcode;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button cancelBtn;
         private System.Windows.Forms.Button updateBtn;
@@ -459,5 +442,12 @@
         private System.Windows.Forms.Label stockLbl;
         private System.Windows.Forms.Label barcodeLbl;
         private System.Windows.Forms.Button clearBtn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productBarcode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productDescription;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productBrand;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productCategory;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productStock;
     }
 }

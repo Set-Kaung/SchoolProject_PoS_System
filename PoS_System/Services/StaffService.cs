@@ -10,8 +10,8 @@ namespace PoS_System.Services
     interface StaffService
     {
         List<Staff> getAllStaffs();
-        void addStaff(string username, string password);
+        void addStaff(string username, string password,long role);
         Boolean isValid(string username,string password);
-        
+        long getRole();
     }
 }

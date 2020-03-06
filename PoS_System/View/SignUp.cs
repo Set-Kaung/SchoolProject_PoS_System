@@ -21,6 +21,13 @@ namespace PoS_System.View
             InitializeComponent();
         }
 
+        public void clearTextBoxes() 
+        {
+            this.nameBox.Clear();
+            this.passwordBox.Clear();
+            this.confirmBox.Clear();
+        }
+
         private void usernameLbl_Click(object sender, EventArgs e)
         {
 
@@ -46,8 +53,9 @@ namespace PoS_System.View
             }
             else
             {
-                staffService.addStaff(name, password);
+                staffService.addStaff(name, password,2L);
                 MessageBox.Show("Sign Up successful!");
+                clearTextBoxes();
                 this.Dispose();
 
             }

@@ -11,12 +11,19 @@ using PoS_System.Services;
 
 namespace PoS_System.View
 {
+    
     public partial class Login : Form
     {
         StaffService staffService = new StaffServiceImpl();
+        private long role;
         public Login()
         {
             InitializeComponent();
+        }
+        public void clearTextBoxes() 
+        {
+            this.nameBox.Clear();
+            this.passwordBox.Clear();
         }
 
        
@@ -29,13 +36,38 @@ namespace PoS_System.View
 
             if(staffService.isValid(name,password)) 
             {
-                this.Hide();
-                FirstPage firstPage = new FirstPage();
-                firstPage.ShowDialog();
-                if (firstPage.IsDisposed) 
+                this.role = staffService.getRole();
+                switch (role)
                 {
-                    this.Show();
-                }            
+                    case 1:
+                        {
+                            {
+                                this.Hide();
+                                FirstPage firstPage = new FirstPage();
+                                firstPage.ShowDialog();
+                                clearTextBoxes();
+                                if (firstPage.IsDisposed)
+                                {
+                                    this.Show();
+                                }
+                                break;
+                            }
+                        }
+                    case 2: 
+                        {
+                            {
+                                this.Hide();
+                                CashierModule cashierModule = new CashierModule();
+                                cashierModule.ShowDialog();
+                                clearTextBoxes();
+                                if (cashierModule.IsDisposed)
+                                {
+                                    this.Show();
+                                }
+                            }
+                            break;
+                        }
+                }
             }
             else 
             {

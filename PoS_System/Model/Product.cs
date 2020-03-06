@@ -8,7 +8,7 @@ namespace PoS_System.Model
 {
     class Product
     {
-        private long id;
+        private long barcode;
         private string name;
         private string description;
         private Brand brand;
@@ -17,16 +17,26 @@ namespace PoS_System.Model
         private long categoryID;
         private double price;
         private long stock;
-        private long barcode;
+
+        public Product(string name, double price, long stock, string description, long barcode, Brand brand, Category category)
+        {
+            Name = name;
+            Price = price;
+            Stock = stock;
+            Description = description;
+            Barcode = barcode;
+            Brand = brand;
+            Category = category;
+        }
 
         public Product() 
         {
         
         }
 
-        public Product(long id, string name, Brand brand, Category category, double price, long stock)
+        public Product(string name, Brand brand, Category category, double price, long stock)
         {
-            this.Id = id;
+            
             this.Name = name;
             this.Brand = brand;
             this.Category = category;
@@ -34,31 +44,25 @@ namespace PoS_System.Model
             this.Stock = stock;
         }
 
-        public Product(long id, string name,string description, long brandID, long categoryID , double price, long stock, long barcode) 
+
+
+        public Product(long barcode,string name,string description, long brandID, long categoryID , double price, long stock) 
         {
-            this.Id = id;
+
+            this.Barcode = barcode;
             this.Name = name;
             this.Description = description;
             this.BrandID = brandID;
             this.CategoryID = categoryID;
             this.Price = price;
             this.Stock = stock;
-            this.Barcode = barcode;
+            
             
         }
 
-        public Product(string name, string description,long brandID, long categoryID, double price, long stock, long barcode)
-        {
-            this.name = name;
-            this.description = description;
-            this.brandID = brandID;
-            this.categoryID = categoryID;
-            this.price = price;
-            this.stock = stock;
-            this.barcode = barcode;
-        }
+       
 
-        public long Id { get => id; set => id = value; }
+        
         public string Name { get => name; set => name = value; }
         public double Price { get => price; set => price = value; }
         public long Stock { get => stock; set => stock = value; }

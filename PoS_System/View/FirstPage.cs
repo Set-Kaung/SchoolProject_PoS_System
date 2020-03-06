@@ -75,7 +75,7 @@ namespace PoS_System.View
                 this.products = productService.getAllProducts();
                 foreach (Product product in products)
                 {
-                    productTable.Rows.Add(product.Id, product.Name, product.Description, product.BrandID, product.CategoryID, product.Price, product.Stock, product.Barcode);
+                    productTable.Rows.Add(product.Barcode, product.Name, product.Description, product.BrandID, product.CategoryID, product.Price, product.Stock);
                 }
             }
             else if (productTable.Rows.Count > 0)
@@ -84,7 +84,7 @@ namespace PoS_System.View
                 this.products = productService.getAllProducts();
                 foreach (Product product in products)
                 {
-                    productTable.Rows.Add(product.Id, product.Name, product.Description, product.BrandID, product.CategoryID, product.Price, product.Stock, product.Barcode);
+                    productTable.Rows.Add(product.Barcode, product.Name, product.Description, product.BrandID, product.CategoryID, product.Price, product.Stock, product.Barcode);
                 }
             }
         }
